@@ -3,9 +3,6 @@ package es.unileon.ulebank.service;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import es.unileon.ulebank.handler.Handler;
-import es.unileon.ulebank.handler.OfficeHandler;
-
 public class Searcher {
 
 	/** Logger for this class and subclasses */
