@@ -27,8 +27,6 @@ public class BankTests {
 	private static String OFFICE_2_ADDRESS = "Calle ancha";
 	private static int OFFICE_2_BALANCE = 600;
 
-	private static String ADDRESS = "Ordonyo II";
-
 	@Before
 	public void setUp() throws Exception {
 		bank = new Bank("0123");
@@ -85,14 +83,13 @@ public class BankTests {
 
 	@Test(expected = OfficeNotFoundException.class)
 	public void testSearchOfficeWithEmptyListOfOffices()
-		
-		throws OfficeNotFoundException {
+
+	throws OfficeNotFoundException {
 		// try {
 		bank = new Bank("2223");
 		bank.setOffices(new ArrayList<Office>());
 		bank.searchOffice("1234");
-		
-		
+
 		// } catch (Exception ex) {
 		// fail("Offices list is empty.");
 		// }
