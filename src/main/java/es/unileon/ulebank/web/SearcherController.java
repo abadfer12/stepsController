@@ -20,7 +20,7 @@ import es.unileon.ulebank.service.*;
 
 @Controller
 @RequestMapping(value = "/searcher.htm")
-public class SearcherFormController {
+public class SearcherController {
 
 	/** Logger for this class and subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
@@ -33,15 +33,22 @@ public class SearcherFormController {
 			throws OfficeNotFoundException {
 
 		String id = searcher.getId();
-		logger.info("Search office with id " + id + ".");
 
-		Office office = this.officeManager.searchOffice(id);
-
-		if (office != null) {
-			return new ModelAndView("office", "office", office);
-		} else {
-			return new ModelAndView("hello", "offices",
+		if (id == "" || id == null) {
+			return new ModelAndView("hello", "model",
 					this.officeManager.getOffices());
+		} else {
+			logger.info("Search office with id " + id + ".");
+
+			Office office = this.officeManager.searchOffice(id);
+
+			if (office != null) {
+				return new ModelAndView("office", "office", office);
+			} else {
+				return new ModelAndView("hello", "model",
+						this.officeManager.getOffices());
+			}
+
 		}
 	}
 
@@ -53,11 +60,11 @@ public class SearcherFormController {
 		return searcher;
 	}
 
-	public void setProductManager(OfficeManager officeManager) {
+	public void setOfficeManager(OfficeManager officeManager) {
 		this.officeManager = officeManager;
 	}
 
-	public OfficeManager getProductManager() {
+	public OfficeManager getOfficeManager() {
 		return officeManager;
 	}
 }
