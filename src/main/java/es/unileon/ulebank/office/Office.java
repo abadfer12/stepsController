@@ -37,7 +37,11 @@ public class Office implements Serializable {
 	    private Integer id;
 
 	
-	
+		/**
+		 * The address of the office
+		 */
+		private String address;
+		private int balance;
 	
 	/**
 	 * Id of the office
@@ -47,10 +51,7 @@ public class Office implements Serializable {
 	 * Id of the bank
 	 */
 	private Handler idBank;
-	/**
-	 * The address of the office
-	 */
-	private String address;
+
 	/**
 	 * The costs of the local of the office
 	 */
@@ -92,14 +93,10 @@ public class Office implements Serializable {
 		this.idOffice = new OfficeHandler(idOffice);
 		this.idBank = new BankHandler(idBank);
 		this.employeeList = new ArrayList<Employee>();
+		this.balance = 0;
 	}
 	
-	
-	
-	
-	
-	
-	
+
 	 public Integer getId()
 	    {
 	        return id;
@@ -197,10 +194,16 @@ public class Office implements Serializable {
 	/**
 	 * Returns the balance of the office
 	 */
-	public int getBalance() {
+	public int getBalance2() {
 		return this.totalIncome - this.totalExpenses;
 	}
 
+	public int getBalance(){
+		return balance;
+	}
+	public void setBalance(int balance){
+		this.balance = balance;
+	}
 
 	/**
 	 * Returns the expenses of the office

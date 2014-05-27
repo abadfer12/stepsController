@@ -25,8 +25,9 @@ public class OfficeTests {
 	@Test
 	public void testSetAndGetBalance() {
 		int testBalance = 600;
-		office.setTotalIncome(800);
-		office.setTotalExpenses(200);
+		//office.setTotalIncome(800);
+		//office.setTotalExpenses(200);
+		office.setBalance(600);
 		assertEquals(testBalance, office.getBalance(), 0);
 	}
 }

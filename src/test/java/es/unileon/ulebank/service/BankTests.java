@@ -36,14 +36,12 @@ public class BankTests {
 		// stub up a list of products
 		Office office = new Office("1234", "0123");
 		office.setAddress("Ordonyo II");
-		office.setTotalIncome(900);
-		office.setTotalExpenses(200);
+		office.setBalance(700);
 		offices.add(office);
 
 		office = new Office("5678", "0123");
 		office.setAddress("Calle ancha");
-		office.setTotalIncome(800);
-		office.setTotalExpenses(200);
+		office.setBalance(600);
 		offices.add(office);
 
 		bank.setOffices(offices);

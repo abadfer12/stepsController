@@ -27,8 +27,6 @@ public class JPAOfficeDaoTests {
 	@Test
 	public void testGetOfficeList() {
 		List<Office> offices = officeDao.getOfficeList();
-		System.out.println(offices.size());
-		System.out.println("Hola");
 		assertEquals(offices.size(), 3, 0);
 	}
 
@@ -44,21 +42,21 @@ public class JPAOfficeDaoTests {
 //
 //	}
 
-	@Test
-	public void testSaveOffice() {
-		List<Office> products = officeDao.getOfficeList();
-
-		Office o = products.get(0);
-		String address = o.getAddress();
-		o.setAddress("Santo domingo");
-		officeDao.saveOffice(o);
-
-		List<Office> updatedProducts = officeDao.getOfficeList();
-		Office o2 = updatedProducts.get(0);
-		assertEquals(o2.getAddress(), "Santo domingo", 0);
-
-		o2.setAddress("Av Peregrinos");
-		officeDao.saveOffice(o2);
-	}
+//	@Test
+//	public void testSaveOffice() {
+//		List<Office> products = officeDao.getOfficeList();
+//
+//		Office o = products.get(0);
+//		String address = o.getAddress();
+//		o.setAddress("Santo domingo");
+//		officeDao.saveOffice(o);
+//
+//		List<Office> updatedProducts = officeDao.getOfficeList();
+//		Office o2 = updatedProducts.get(0);
+//		assertEquals(o2.getAddress(), "Santo domingo", 0);
+//
+//		o2.setAddress("Av Peregrinos");
+//		officeDao.saveOffice(o2);
+//	}
 
 }

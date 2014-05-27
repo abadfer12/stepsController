@@ -7,7 +7,7 @@ public interface OfficeDao {
 
 	public List<Office> getOfficeList();
 
-	public List<Office> searchOffice(String idOffice);
+	// public List<Office> searchOffice(String idOffice);
 
 	public void saveOffice(Office of);
 }
