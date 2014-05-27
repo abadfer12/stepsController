@@ -13,7 +13,15 @@ import es.unileon.ulebank.exceptions.ClientNotFoundException;
 import es.unileon.ulebank.handler.DNIHandler;
 import es.unileon.ulebank.handler.Handler;
 import es.unileon.ulebank.handler.OfficeHandler;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table (name="offices")
 public class Office implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -22,6 +30,15 @@ public class Office implements Serializable {
 
 	private List<Client> clients;
 
+	
+	 @Id
+	    @Column(name = "id")
+	    @GeneratedValue(strategy = GenerationType.AUTO)
+	    private Integer id;
+
+	
+	
+	
 	/**
 	 * Id of the office
 	 */
@@ -76,6 +93,28 @@ public class Office implements Serializable {
 		this.idBank = new BankHandler(idBank);
 		this.employeeList = new ArrayList<Employee>();
 	}
+	
+	
+	
+	
+	
+	
+	
+	 public Integer getId()
+	    {
+	        return id;
+	    }
+
+	    public void setId(Integer id)
+	    {
+	        this.id = id;
+	    } 
+	    
+	    
+	
+	
+	
+	
 
 	public List<Client> getClients() {
 		return new ArrayList<Client>(this.clients);
