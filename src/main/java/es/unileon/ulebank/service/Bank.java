@@ -2,9 +2,6 @@ package es.unileon.ulebank.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-//import es.unileon.ulebank.repository.OfficeDao;
 import es.unileon.ulebank.office.Office;
 import es.unileon.ulebank.handler.Handler;
 import es.unileon.ulebank.handler.OfficeHandler;

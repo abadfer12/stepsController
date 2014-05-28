@@ -8,6 +8,6 @@ public interface OfficeDao {
 
     public List<Office> getOfficeList();
 
-    public void saveOffice(Office prod);
+    public void saveOffice(Office off);
 
 }

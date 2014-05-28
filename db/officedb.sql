@@ -12,7 +12,6 @@ CREATE TABLE office (
   idBank INTEGER,
   idOffice INTEGER,
   address varchar(50),
-  totalExpenses INTEGER,
-  totalIncome INTEGER
+  balance decimal(15,2)
 );
 CREATE INDEX office_idOffice ON office(idOffice);

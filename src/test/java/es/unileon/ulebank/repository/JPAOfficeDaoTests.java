@@ -25,6 +25,7 @@ public class JPAOfficeDaoTests {
 
 	@Test
 	public void testGetOfficeList() {
+
 		List<Office> offices = officeDao.getOfficeList();
 		assertEquals(offices.size(), 3, 0);
 	}
@@ -34,13 +35,13 @@ public class JPAOfficeDaoTests {
 		List<Office> offices = officeDao.getOfficeList();
 
 		Office p = offices.get(0);
-		int balance = p.getBalance();
-		p.setBalance(200);
+		Double balance = p.getBalance();
+		p.setBalance(200.0);
 		officeDao.saveOffice(p);
 
 		List<Office> updatedOffices = officeDao.getOfficeList();
 		Office p2 = updatedOffices.get(0);
-		assertEquals(p2.getBalance(), 200, 0);
+		assertEquals(p2.getBalance(), 200.0, 0);
 
 		p2.setBalance(balance);
 		officeDao.saveOffice(p2);

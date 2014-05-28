@@ -23,12 +23,12 @@ public class BankTests {
 	private static int OFFICE_COUNT = 2;
 
 	private static String OFFICE_1_ID = "1234";
-	private static int OFFICE_1_BALANCE = 700;
+	private static Double OFFICE_1_BALANCE = 700.0;
 	private static String OFFICE_1_ADDRESS = "Ordonyo II";
 
 	private static String OFFICE_2_ID = "5678";
 	private static String OFFICE_2_ADDRESS = "Calle ancha";
-	private static int OFFICE_2_BALANCE = 600;
+	private static Double OFFICE_2_BALANCE = 600.0;
 
 	@Before
 	public void setUp() throws Exception {
@@ -39,12 +39,12 @@ public class BankTests {
 		// stub up a list of products
 		Office office = new Office("1234", "0123");
 		office.setAddress("Ordonyo II");
-		office.setBalance(700);
+		office.setBalance(700.0);
 		offices.add(office);
 
 		office = new Office("5678", "0123");
 		office.setAddress("Calle ancha");
-		office.setBalance(600);
+		office.setBalance(600.0);
 		offices.add(office);
 
 		bank.setOffices(offices);

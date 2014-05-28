@@ -27,7 +27,7 @@ public class OfficeTests {
 		int testBalance = 600;
 		//office.setTotalIncome(800);
 		//office.setTotalExpenses(200);
-		office.setBalance(600);
+		office.setBalance(600.0);
 		assertEquals(testBalance, office.getBalance(), 0);
 	}
 }

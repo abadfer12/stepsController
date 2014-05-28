@@ -77,7 +77,7 @@ public class Office implements Serializable {
 	 * The address of the office
 	 */
 	private String address;
-	private int balance;
+	private Double balance;
 
 	public Integer getId() {
 		return id;
@@ -98,7 +98,7 @@ public class Office implements Serializable {
 		this.idOffice = new OfficeHandler(idOffice);
 		this.idBank = new BankHandler(idBank);
 		this.employeeList = new ArrayList<Employee>();
-		this.balance = 0;
+		this.balance = 0.0;
 	}
 
 	public List<Client> getClients() {
@@ -186,11 +186,11 @@ public class Office implements Serializable {
 		return this.totalIncome - this.totalExpenses;
 	}
 
-	public int getBalance() {
+	public Double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(int balance) {
+	public void setBalance(Double balance) {
 		this.balance = balance;
 	}
 
