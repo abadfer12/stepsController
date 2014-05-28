@@ -45,16 +45,13 @@ package es.unileon.ulebank.repository;
 //}
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import es.unileon.ulebank.office.Office;
 
-import es.unileon.ulebank.office.*;
-
-@Repository(value = "productDao")
+@Repository(value = "OfficeDao")
 public class JPAOfficeDao implements OfficeDao {
 
 	private EntityManager em = null;
@@ -75,8 +72,8 @@ public class JPAOfficeDao implements OfficeDao {
 	}
 
 	@Transactional(readOnly = false)
-	public void saveOffice(Office prod) {
-		em.merge(prod);
+	public void saveOffice(Office of) {
+		em.merge(of);
 	}
 
 	// @Override

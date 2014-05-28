@@ -1,3 +1,3 @@
-INSERT INTO offices (id, address, balance) values(1234, 'Eras', 5000);
-INSERT INTO offices (id, address, balance) values(2345, 'Ordonyo II', 7529);
-INSERT INTO offices (id, address, balance) values(3456, 'Calle ancha', 22081);
+INSERT INTO office (id, idBank, idOffice, address, totalExpenses, totalIncome) values(1, 0123, 1234, 'Ordonyo II', 340, 2340);
+INSERT INTO office (id, idBank, idOffice, address, totalExpenses, totalIncome) values(2, 0123, 5678, 'Calle ancha', 230, 2450);
+INSERT INTO office (id, idBank, idOffice, address, totalExpenses, totalIncome) values(3, 0123, 8910, 'Eras', 12060, 3000);

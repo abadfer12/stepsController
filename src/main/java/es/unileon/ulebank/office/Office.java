@@ -1,18 +1,18 @@
 package es.unileon.ulebank.office;
 
 import java.io.Serializable;
-
-import es.unileon.ulebank.users.Employee;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import es.unileon.ulebank.users.Employee;
 import es.unileon.ulebank.service.BankHandler;
 import es.unileon.ulebank.client.Client;
 import es.unileon.ulebank.exceptions.ClientNotFoundException;
 import es.unileon.ulebank.handler.DNIHandler;
 import es.unileon.ulebank.handler.Handler;
 import es.unileon.ulebank.handler.OfficeHandler;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="offices")
+@Table(name = "offices")
 public class Office implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,19 +30,6 @@ public class Office implements Serializable {
 
 	private List<Client> clients;
 
-	
-	 @Id
-	    @Column(name = "id")
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    private Integer id;
-
-	
-		/**
-		 * The address of the office
-		 */
-		private String address;
-		private int balance;
-	
 	/**
 	 * Id of the office
 	 */
@@ -82,6 +69,17 @@ public class Office implements Serializable {
 	 */
 	//
 
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+
+	/**
+	 * The address of the office
+	 */
+	private String address;
+	private int balance;
+
 	/**
 	 * Constructor
 	 * 
@@ -95,23 +93,14 @@ public class Office implements Serializable {
 		this.employeeList = new ArrayList<Employee>();
 		this.balance = 0;
 	}
-	
 
-	 public Integer getId()
-	    {
-	        return id;
-	    }
+	public Integer getId() {
+		return id;
+	}
 
-	    public void setId(Integer id)
-	    {
-	        this.id = id;
-	    } 
-	    
-	    
-	
-	
-	
-	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public List<Client> getClients() {
 		return new ArrayList<Client>(this.clients);
@@ -198,10 +187,11 @@ public class Office implements Serializable {
 		return this.totalIncome - this.totalExpenses;
 	}
 
-	public int getBalance(){
+	public int getBalance() {
 		return balance;
 	}
-	public void setBalance(int balance){
+
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 
