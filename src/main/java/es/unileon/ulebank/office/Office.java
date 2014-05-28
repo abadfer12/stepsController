@@ -21,7 +21,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "offices")
+@Table(name = "office")
 public class Office implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -68,7 +68,6 @@ public class Office implements Serializable {
 	 * The list of accounts of this office
 	 */
 	//
-
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -79,6 +78,14 @@ public class Office implements Serializable {
 	 */
 	private String address;
 	private int balance;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	/**
 	 * Constructor
@@ -92,14 +99,6 @@ public class Office implements Serializable {
 		this.idBank = new BankHandler(idBank);
 		this.employeeList = new ArrayList<Employee>();
 		this.balance = 0;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public List<Client> getClients() {
@@ -193,13 +192,6 @@ public class Office implements Serializable {
 
 	public void setBalance(int balance) {
 		this.balance = balance;
-	}
-
-	/**
-	 * Returns the expenses of the office
-	 */
-	public int getExpenses() {
-		return totalExpenses;
 	}
 
 	/**

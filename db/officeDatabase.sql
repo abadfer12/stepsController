@@ -15,4 +15,4 @@ CREATE TABLE office (
   totalExpenses INTEGER,
   totalIncome INTEGER
 );
-CREATE INDEX office_address ON office(address);
+CREATE INDEX office_idOffice ON office(idOffice);

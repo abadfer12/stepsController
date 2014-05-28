@@ -2,6 +2,7 @@ package es.unileon.ulebank.service;
 
 import static org.junit.Assert.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.junit.Test;
 
 import es.unileon.ulebank.exceptions.OfficeNotFoundException;
 import es.unileon.ulebank.office.Office;
+
+import es.unileon.ulebank.repository.*;
 
 public class BankTests {
 
@@ -45,11 +48,19 @@ public class BankTests {
 		offices.add(office);
 
 		bank.setOffices(offices);
+		
+		//OfficeDao productDao = new InMemoryOfficeDao(offices);
+		//bank.setProductDao(productDao);
+        //productManager.setProducts(products);
+        
+        
 	}
 
 	@Test
 	public void testGetOfficesWithNoOffices() {
 		bank = new Bank("0123");
+		//  bank.setProductDao(new InMemoryOfficeDao(new ArrayList<Office>()));
+           //productManager.setProducts(new ArrayList<Product>());
 		assertNull(bank.getOffices());
 	}
 
@@ -69,10 +80,11 @@ public class BankTests {
 	}
 
 	@Test(expected = OfficeNotFoundException.class)
-	public void testIncreasePriceWithNullListOfOffices()
+	public void testSearchOfficeWithNullListOfOffices()
 			throws OfficeNotFoundException {
 		// try {
 		bank = new Bank("2345");
+		//bank.setProductDao(new InMemoryOfficeDao(null));
 		bank.searchOffice("0123");
 		// } catch (NullPointerException ex) {
 		// fail("Offices list is null.");
