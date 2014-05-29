@@ -8,6 +8,10 @@ import es.unileon.ulebank.handler.OfficeHandler;
 import es.unileon.ulebank.exceptions.MalformedHandlerException;
 import es.unileon.ulebank.exceptions.OfficeNotFoundException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import es.unileon.ulebank.repository.OfficeDao;
 //import java.util.ArrayList;
 //@Component
 public class Bank implements OfficeManager {
@@ -15,8 +19,8 @@ public class Bank implements OfficeManager {
 	private static final long serialVersionUID = 1L;
 	private List<Office> offices = new ArrayList<Office>();
 	private final Handler idBank;
-	//	@Autowired
-	// private OfficeDao productDao;
+	@Autowired
+	private OfficeDao productDao;
 	/**
 	 *
 	 * @param manager
@@ -35,7 +39,8 @@ public class Bank implements OfficeManager {
 		if (offices.isEmpty() == true) {
 			return null;
 		} else {
-			return offices; //productDao.getOfficeList();
+			//return offices; //productDao.getOfficeList();
+			return productDao.getOfficeList();
 		}
 	}
 
@@ -43,9 +48,9 @@ public class Bank implements OfficeManager {
 		this.offices = offices;
 	}
 	
-//	public void setOffices() {
-//		this.offices = productDao.getOfficeList();
-//	}
+	  public void setOfficeDao(OfficeDao productDao) {
+	        this.productDao = productDao;
+	    }
 
 	public Handler getIdBank() {
 		return idBank;
@@ -88,7 +93,7 @@ public class Bank implements OfficeManager {
 	}
 
 	public Office searchOffice(String id) throws OfficeNotFoundException {
-
+		offices = productDao.getOfficeList();
 		Handler idHandler = new OfficeHandler(id);
 		Office office = null;
 		int i = 0;

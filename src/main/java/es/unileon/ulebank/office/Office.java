@@ -238,83 +238,83 @@ public class Office implements Serializable {
 		return employeeList.remove(employee);
 	}
 
-	/**
-	 *
-	 * @param client
-	 * @return
-	 */
-	public synchronized boolean addClient(Client client) {
-		if (client != null) {
-			int i = 0;
-			boolean found = false;
-			while (i < this.clients.size() && !found) {
-				found = clients.get(i).getId().compareTo(client.getId()) == 0;
-				++i;
-			}
-			if (!found) {
-				return this.clients.add(client);
-			}
-		}
-		return false;
-	}
-
-	/**
-	 *
-	 * @param id
-	 * @return
-	 */
-	public synchronized boolean deleteClient(Handler id) {
-		int i = 0;
-		boolean found = false;
-		while (i < this.clients.size() && !found) {
-			if (clients.get(i).getId().compareTo(id) == 0) {
-				// TODO perform account liquidation
-				clients.remove(i);
-				found = true;
-			}
-			++i;
-		}
-		return found;
-	}
-
-	/**
-	 * Busca el cliente cuyo DNI coincida con el recibido
-	 * 
-	 * @param dni
-	 * @return
-	 * @throws ClientNotFoundException
-	 */
-	public Client searchClient(DNIHandler dni) throws ClientNotFoundException {
-		// Creamos un iterador para recorrer la lista
-		Iterator<Client> iterator = clients.iterator();
-		Client client = null;
-		boolean found = false;
-
-		// Comprobamos que la lista no este vacia
-		if (clients.isEmpty()) {
-			throw new NullPointerException("Client list is empty.");
-		}
-
-		// Mientras haya clientes recorremos la lista
-		while (iterator.hasNext()) {
-			// Guardamos el cliente actual
-			client = iterator.next();
-
-			// Si el DNI del cliente actual coincide con el indicado salimos del
-			// bucle
-			if (client.getDni().compareTo(dni) == 0) {
-				found = true;
-				break;
-			}
-		}
-		// Devolvemos el cliente encontrado
-		if (found) {
-			return client;
-			// si no se encuentra lanzamos una excepcion
-		} else {
-			throw new ClientNotFoundException("Client not found");
-		}
-	}
+//	/**
+//	 *
+//	 * @param client
+//	 * @return
+//	 */
+//	public synchronized boolean addClient(Client client) {
+//		if (client != null) {
+//			int i = 0;
+//			boolean found = false;
+//			while (i < this.clients.size() && !found) {
+//				found = clients.get(i).getId().compareTo(client.getId()) == 0;
+//				++i;
+//			}
+//			if (!found) {
+//				return this.clients.add(client);
+//			}
+//		}
+//		return false;
+//	}
+//
+//	/**
+//	 *
+//	 * @param id
+//	 * @return
+//	 */
+//	public synchronized boolean deleteClient(Handler id) {
+//		int i = 0;
+//		boolean found = false;
+//		while (i < this.clients.size() && !found) {
+//			if (clients.get(i).getId().compareTo(id) == 0) {
+//				// TODO perform account liquidation
+//				clients.remove(i);
+//				found = true;
+//			}
+//			++i;
+//		}
+//		return found;
+//	}
+//
+//	/**
+//	 * Busca el cliente cuyo DNI coincida con el recibido
+//	 * 
+//	 * @param dni
+//	 * @return
+//	 * @throws ClientNotFoundException
+//	 */
+//	public Client searchClient(DNIHandler dni) throws ClientNotFoundException {
+//		// Creamos un iterador para recorrer la lista
+//		Iterator<Client> iterator = clients.iterator();
+//		Client client = null;
+//		boolean found = false;
+//
+//		// Comprobamos que la lista no este vacia
+//		if (clients.isEmpty()) {
+//			throw new NullPointerException("Client list is empty.");
+//		}
+//
+//		// Mientras haya clientes recorremos la lista
+//		while (iterator.hasNext()) {
+//			// Guardamos el cliente actual
+//			client = iterator.next();
+//
+//			// Si el DNI del cliente actual coincide con el indicado salimos del
+//			// bucle
+//			if (client.getDni().compareTo(dni) == 0) {
+//				found = true;
+//				break;
+//			}
+//		}
+//		// Devolvemos el cliente encontrado
+//		if (found) {
+//			return client;
+//			// si no se encuentra lanzamos una excepcion
+//		} else {
+//			throw new ClientNotFoundException("Client not found");
+//		}
+//	}
 
 	public String toString() {
 		StringBuffer buffer = new StringBuffer();

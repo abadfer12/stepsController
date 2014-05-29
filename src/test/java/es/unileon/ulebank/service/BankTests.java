@@ -2,7 +2,6 @@ package es.unileon.ulebank.service;
 
 import static org.junit.Assert.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,20 +46,18 @@ public class BankTests {
 		office.setBalance(600.0);
 		offices.add(office);
 
+		OfficeDao officeDao = new InMemoryOfficeDao(offices);
+		bank.setOfficeDao(officeDao);
+		// bank.setOffices(offices);
 		bank.setOffices(offices);
-		
-		//OfficeDao productDao = new InMemoryOfficeDao(offices);
-		//bank.setProductDao(productDao);
-        //productManager.setProducts(products);
-        
-        
 	}
 
 	@Test
 	public void testGetOfficesWithNoOffices() {
 		bank = new Bank("0123");
-		//  bank.setProductDao(new InMemoryOfficeDao(new ArrayList<Office>()));
-           //productManager.setProducts(new ArrayList<Product>());
+		bank.setOfficeDao(new InMemoryOfficeDao(null));
+		// bank.setProductDao(new InMemoryOfficeDao(new ArrayList<Office>()));
+		// productManager.setProducts(new ArrayList<Product>());
 		assertNull(bank.getOffices());
 	}
 
@@ -79,31 +76,71 @@ public class BankTests {
 		assertEquals(OFFICE_2_BALANCE, office.getBalance());
 	}
 
-	@Test(expected = OfficeNotFoundException.class)
-	public void testSearchOfficeWithNullListOfOffices()
-			throws OfficeNotFoundException {
-		// try {
-		bank = new Bank("2345");
-		//bank.setProductDao(new InMemoryOfficeDao(null));
-		bank.searchOffice("0123");
-		// } catch (NullPointerException ex) {
-		// fail("Offices list is null.");
-		// }
-	}
+	// @Test(expected = OfficeNotFoundException.class)
+	// public void testSearchOfficeWithNullListOfOffices()
+	// /*throws OfficeNotFoundException*/ {
+	//
+	//
+	// try {
+	// bank = new Bank("0123");
+	// bank.setOfficeDao(new InMemoryOfficeDao(null));
+	// bank.searchOffice("1234");
+	// }
+	// catch(NullPointerException | OfficeNotFoundException ex) {
+	// fail("Offices list is null.");
+	// }
+	//
+	//
+	//
+	// // try {
+	// //bank = new Bank("2345");
+	// // bank.setProductDao(new InMemoryOfficeDao(null));
+	// //bank.searchOffice("0123");
+	// // } catch (NullPointerException ex) {
+	// // fail("Offices list is null.");
+	// // }
+	// }
 
-	@Test(expected = OfficeNotFoundException.class)
-	public void testSearchOfficeWithEmptyListOfOffices()
+	// @Test
+	// public void testIncreasePriceWithNullListOfProducts() {
+	// try {
+	// productManager = new SimpleProductManager();
+	// productManager.setProductDao(new InMemoryProductDao(null));
+	// productManager.increasePrice(POSITIVE_PRICE_INCREASE);
+	// }
+	// catch(NullPointerException ex) {
+	// fail("Products list is null.");
+	// }
+	// }
 
-	throws OfficeNotFoundException {
-		// try {
-		bank = new Bank("2223");
-		bank.setOffices(new ArrayList<Office>());
-		bank.searchOffice("1234");
+	// @Test(expected = OfficeNotFoundException.class)
+	// public void testSearchOfficeWithEmptyListOfOffices()
+	//
+	// throws OfficeNotFoundException {
+	// // try {
+	// bank = new Bank("2223");
+	// bank.setOffices(new ArrayList<Office>());
+	// System.out.println(bank.getOffices().toString());
+	// bank.searchOffice("1234");
+	//
+	// // } catch (Exception ex) {
+	// // fail("Offices list is empty.");
+	// // }
+	// }
 
-		// } catch (Exception ex) {
-		// fail("Offices list is empty.");
-		// }
-	}
+	// @Test
+	// public void testIncreasePriceWithEmptyListOfProducts() {
+	// try {
+	// productManager = new SimpleProductManager();
+	// productManager.setProductDao(new InMemoryProductDao(new
+	// ArrayList<Product>()));
+	// //productManager.setProducts(new ArrayList<Product>());
+	// productManager.increasePrice(POSITIVE_PRICE_INCREASE);
+	// }
+	// catch(Exception ex) {
+	// fail("Products list is empty.");
+	// }
+	// }
 
 	@Test
 	public void testSearchOfficeWithGoodId() throws OfficeNotFoundException {
