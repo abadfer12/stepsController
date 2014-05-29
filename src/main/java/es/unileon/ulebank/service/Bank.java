@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import es.unileon.ulebank.repository.OfficeDao;
-//import java.util.ArrayList;
-//@Component
+
+@Component
 public class Bank implements OfficeManager {
 
 	private static final long serialVersionUID = 1L;
@@ -21,6 +21,7 @@ public class Bank implements OfficeManager {
 	private final Handler idBank;
 	@Autowired
 	private OfficeDao productDao;
+
 	/**
 	 *
 	 * @param manager
@@ -29,17 +30,18 @@ public class Bank implements OfficeManager {
 	 */
 	public Bank(String idBank) throws MalformedHandlerException {
 		this.idBank = new BankHandler(idBank);
-		//this.offices = productDao.getOfficeList();
+		// this.offices = productDao.getOfficeList();
 		// this.offices = new ArrayList<Office>();
 	}
+
 	// public void setProductDao(OfficeDao productDao) {
-	//       this.productDao = productDao;
-	//   }
+	// this.productDao = productDao;
+	// }
 	public List<Office> getOffices() {
 		if (offices.isEmpty() == true) {
 			return null;
 		} else {
-			//return offices; //productDao.getOfficeList();
+			// return offices; //productDao.getOfficeList();
 			return productDao.getOfficeList();
 		}
 	}
@@ -47,10 +49,10 @@ public class Bank implements OfficeManager {
 	public void setOffices(List<Office> offices) {
 		this.offices = offices;
 	}
-	
-	  public void setOfficeDao(OfficeDao productDao) {
-	        this.productDao = productDao;
-	    }
+
+	public void setOfficeDao(OfficeDao productDao) {
+		this.productDao = productDao;
+	}
 
 	public Handler getIdBank() {
 		return idBank;
@@ -112,7 +114,7 @@ public class Bank implements OfficeManager {
 			throw new OfficeNotFoundException("Empty list.");
 		}
 		if (found == true) {
-			//productDao.saveOffice(office);
+			// productDao.saveOffice(office);
 			return office;
 		} else {
 			throw new OfficeNotFoundException("Office not founded.");
