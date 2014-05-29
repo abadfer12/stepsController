@@ -11,7 +11,7 @@ public class OfficeTests {
 
 	@Before
 	public void setUp() throws Exception {
-		office = new Office("1234", "0123");
+		office = new Office();//office = new Office("1234", "0123");
 	}
 
 	@Test

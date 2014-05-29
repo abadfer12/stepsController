@@ -1,5 +1,9 @@
 package es.unileon.ulebank.web;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -35,8 +39,15 @@ public class SearcherController {
 		String id = searcher.getId();
 
 		if (id == "" || id == null) {
-			return new ModelAndView("hello", "model",
-					this.officeManager.getOffices());
+
+			String now = (new Date()).toString();
+			logger.info("Returning hello view with " + now);
+
+			Map<String, Object> myModel = new HashMap<String, Object>();
+			myModel.put("now", now);
+			myModel.put("offices", this.officeManager.getOffices());
+
+			return new ModelAndView("hello", "model", myModel);
 		} else {
 			logger.info("Search office with id " + id + ".");
 
@@ -45,8 +56,15 @@ public class SearcherController {
 			if (office != null) {
 				return new ModelAndView("office", "office", office);
 			} else {
-				return new ModelAndView("hello", "model",
-						this.officeManager.getOffices());
+
+				String now = (new Date()).toString();
+				logger.info("Returning hello view with " + now);
+
+				Map<String, Object> myModel = new HashMap<String, Object>();
+				myModel.put("now", now);
+				myModel.put("offices", this.officeManager.getOffices());
+
+				return new ModelAndView("hello", "model", myModel);
 			}
 
 		}

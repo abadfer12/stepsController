@@ -18,12 +18,13 @@ public class OfficesControllerTests {
 	public void testHandleRequestView() throws Exception {
 		OfficesController controller = new OfficesController();
 
-		Bank spm = new Bank("0123");
+		//Bank spm = new Bank("0123");
+		Bank spm = new Bank();
 		spm.setOfficeDao(new InMemoryOfficeDao(new ArrayList<Office>()));
 		controller.setOfficeManager(spm);
 		// controller.setProductManager(new SimpleProductManager());
 
-		controller.setOfficeManager(new Bank("0123"));
+		controller.setOfficeManager(new Bank());//controller.setOfficeManager(new Bank("0123"));
 		ModelAndView modelAndView = controller.handleRequest(null, null);
 		assertEquals("hello", modelAndView.getViewName());
 		assertNotNull(modelAndView.getModel());
